@@ -150,7 +150,6 @@ function readOne(){
     $this->email = $row['email'];
     $this->contact = $row['contact'];
     $this->code = $row['code'];
-    $this->image = $row['image'];
     $this->date = $row['date'];
     $this->loginTime = $row['loginTime'];
 
