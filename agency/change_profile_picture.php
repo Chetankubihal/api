@@ -75,7 +75,7 @@ if($agency->change_profile_picture($image_name))
     } else {
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_dir.$image_name)) {
 
-            echo json_encode(array("message" => "success"));
+            echo json_encode(array("message" => "success","image_path"=>$image_name));
         } else {
             echo json_encode(array("message" => "failed"));// failed because of server directory
         }
