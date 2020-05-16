@@ -15,7 +15,7 @@ $db = $database->getConnection();
  
 // prepare affiliate object
 $affiliate = new Affiliate($db);
-$affiliate->email= $_POST['email'] ;
+$affiliate->email= $_POST['emailhidden'] ;
 
 //tokenize email to use it as image name
 $image_name=strtok($affiliate->email,'@');
