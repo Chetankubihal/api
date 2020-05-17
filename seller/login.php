@@ -34,7 +34,7 @@ if($num > 0){
     http_response_code(200);
   
     // make it json format
-    echo json_encode(array("message" => "True", "sellerName" => $seller->sellerName,"status" => $seller->status,"image_path"=>$seller->image_path));
+    echo json_encode(array("message" => "True", "sellerName" => $seller->sellerName,"status" => $seller->status,"image_path"=>$seller->image_path,"type"=>"seller"));
 }
  
 else{
