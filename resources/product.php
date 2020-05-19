@@ -143,16 +143,19 @@ function readOne(){
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
  
     // set values to object properties
-    // $this->product_name = $row['product_name'];
-    // $this->product_description = $row['product_description'];
-    // $this->product_category = $row['product_category'];
-    // $this->product_sub_category = $row['product_sub_category'];
+    $this->product_name = $row['product_name'];
+    $this->product_description = $row['product_description'];
+    $this->product_category = $row['product_category'];
+    $this->product_sub_category = $row['product_sub_category'];
     $this->product_MRP = $row['product_MRP'];
     $this->product_selling_price = $row['product_selling_price'];
-
-    // $this->product_SKU = $row['product_SKU'];
-    // $this->product_HSN = $row['product_HSN'];
-    // $this->status = $row['status'];
+    $this->product_SKU = $row['product_SKU'];
+    $this->product_HSN = $row['product_HSN'];
+    $this->status = $row['status'];
+    $this->package_length=$row['package_length'];
+    $this->package_breadth=$row['package_breadth'];
+    $this->package_width=$row['package_width'];
+    $this->package_weight=$row['package_weight'];
 
     return true;
  }
@@ -166,8 +169,7 @@ function readOne(){
 
 function updateProduct()
 {
-    $query="Update products SET product_MRP=".$this->product_MRP.",product_selling_price=".$this->product_selling_price.",package_length=".$this->package_length.",package_width=".$this->package_width.",package_breadth=".$this->package_breadth.",package_weight=".$this->package_weight."WHERE  product_id=".$this->product_id."AND seller_email=".$this->seller_email;
-
+    $query="Update products SET product_HSN=".$this->product_HSN.", product_name=".$this->product_name.",product_description=".$this->product_description.",product_category=".$this->product_category.",product_sub_category=".$this->product_sub_category.",product_MRP=".$this->product_MRP.",product_selling_price=".$this->product_selling_price.",package_length=".$this->package_length.",package_width=".$this->package_width.",package_breadth=".$this->package_breadth.",package_weight=".$this->package_weight."WHERE  product_id=".$this->product_id;
   
     $stmt= $this->conn->prepare($query);
 

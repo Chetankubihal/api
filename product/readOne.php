@@ -19,7 +19,7 @@ $db = $database->getConnection();
 $product = new Product($db);
  
 // set email property of record to read
-$product->product_id= '"'. $_POST['product_id'] .'"';
+$product->product_id= '"'. $_GET['product_id'] .'"';
 // read the details of affiliate to be edited
 
 
@@ -35,7 +35,11 @@ if($product->readOne()){
         "HSN" => $product->product_HSN,
         "selling_price"=> $product->product_selling_price,
         "MRP"=> $product->product_MRP,
-        "status"=> $product->status 
+        "status"=> $product->status ,
+        "length"=>$product->package_length,
+        "breadth"=>$product->package_breadth,
+        "width"=>$product->package_width,
+        "weight"=>$product->package_weight
     );
  
     // set response code - 200 OK

@@ -46,12 +46,12 @@ $sql.=$seller_email;
 if( !empty($requestData['search']['value']) ) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
 	$sql.=" AND ( product_SKU LIKE '".$requestData['search']['value']."%' ";    
 	$sql.=" OR product_category LIKE '".$requestData['search']['value']."%' ";
-    $sql.=" OR product_name LIKE '".$requestData['search']['value']."%' )";
+    $sql.=" OR product_name LIKE '".$requestData['search']['value']."%' ";
 	$sql.=" OR product_sub_category LIKE '".$requestData['search']['value']."%' )";
 }
 $query=mysqli_query($conn, $sql) or die("employee-grid-data.php: get employees");
 $totalFiltered = mysqli_num_rows($query); // when there is a search parameter then we have to modify total number filtered rows as per search result. 
-//$sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
+$sql.=" ORDER BY ". $columns[$requestData['order'][0]['column']]."   ".$requestData['order'][0]['dir']."  LIMIT ".$requestData['start']." ,".$requestData['length']."   ";
 /* $requestData['order'][0]['column'] contains colmun index, $requestData['order'][0]['dir'] contains order such as asc/desc  */	
 $query=mysqli_query($conn, $sql) or die("employee-grid-data.php: get employees");
 
@@ -76,7 +76,7 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 	else 
 	$nestedData[] = "<span class='badge badge-warning'>" . $row['status'] ."</span>";
 
-	$nestedData[]= "<button name='view' class=' btn' value='view' data-toggle='tooltip' title='View' onclick=loadmodal(" .'"' . $row['product_id'] .'"'. ") ><i class='icon-eye'></i></button>";
+	$nestedData[]= "<button name='view' class=' btn' value='view' data-toggle='tooltip' title='View' onclick=editProduct(".$row['product_id'].") ><i class='ft-edit'></i></button>";
 
 	$data[] = $nestedData;
 	$i++;
@@ -92,5 +92,7 @@ $json_data = array(
 			);
 
 echo json_encode($json_data);  // send data as json format
+
+
 
 ?>
