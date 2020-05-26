@@ -237,7 +237,7 @@ function checkSKUCode()
 }
 function addInventory($address1,$address2,$pincode,$state,$city,$contact)
 {
-  $query="INSERT INTO inventory(sku_code,quantity,address1,address2,city,pincode,state,contact) VALUES (".$this->product_sku.",".$this->product_quantity.",".$address1.",".$address2.",".$city.",".$pincode.",".$state.",".$contact.")";
+  $query="INSERT INTO inventory(sku_code,quantity,address1,address2,city,pincode,state,contact) VALUES (".$this->product_SKU.",".$this->product_quantity.",".$address1.",".$address2.",".$city.",".$pincode.",".$state.",".$contact.")";
 
   $stmt=$this->conn->prepare($query);
 
