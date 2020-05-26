@@ -21,6 +21,7 @@ public $package_length;
 public $package_width;
 public $package_breadth;
 public $package_weight;
+public $product_quantity;
 
 
 public function __construct($con)
@@ -234,6 +235,17 @@ function checkSKUCode()
     return $stmt;
 
 }
+function addInventory($address1,$address2,$pincode,$state,$city,$contact)
+{
+  $query="INSERT INTO inventory(sku_code,quantity,address1,address2,city,pincode,state,contact) VALUES (".$this->product_sku.",".$this->product_quantity.",".$address1.",".$address2.",".$city.",".$pincode.",".$state.",".$contact.")";
+
+  $stmt=$this->conn->prepare($query);
+
+  $stmt->execute();
+
+  return $stmt;
+}
+
 }
 
 ?>

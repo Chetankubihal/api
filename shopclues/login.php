@@ -28,7 +28,18 @@ return $response;
 }
 
 $token = genToken($oauth_url, $credentials);  
-print_r($token) ;  
+
+print_r("Access token: ".$token["access_token"]);
+echo '<br>';
+print_r("Expires(in seconds): ".$token["expires_in"]);
+echo '<br>';
+print_r("Token type: ".$token["token_type"]);
+echo '<br>';
+print_r("Scope: ".$token["scope"]);
+echo '<br>';
+print_r("Refresh token(in seconds): ".$token["refresh_token"]); 
+echo '<br>';
+
 
 ?>
 
