@@ -1,3 +1,4 @@
+
 <?php
 
 header("Access-Control-Allow-Origin: *");
@@ -8,13 +9,12 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $sku_code=$_GET['product_sku'];
 $seller_email=$_GET['seller_email'];
+$image_name=$_GET['image_name'];
 
-$dir=getcwd()."/product_images/".$seller_email."/".$sku_code."/";
+$dir=getcwd()."/product_images/".$seller_email."/".$sku_code."/".$image_name;
 
-$fi = new FilesystemIterator($dir, FilesystemIterator::SKIP_DOTS);
-$count= iterator_count($fi);
+if(unlink($dir))
+echo json_encode(array("message"=>"True"));
 
-$a=scandir($dir);
 
-echo json_encode(array("message"=>"True","count"=>$count,"image_array"=>$a));
 ?>
