@@ -235,9 +235,9 @@ function checkSKUCode()
     return $stmt;
 
 }
-function addInventory($address1,$address2,$city,$pincode,$state,$contact)
+function addInventory($address1,$address2,$city,$pincode,$state,$contact,$district)
 {
-  $query="INSERT INTO inventory(sku_code,quantity,address1,address2,city,pincode,state,contact) VALUES (".$this->product_SKU.",".$this->product_quantity.",".$address1.",".$address2.",".$city.",".$pincode.",".$state.",".$contact.")";
+  $query="INSERT INTO inventory(sku_code,quantity,address1,address2,city,pincode,state,contact,district) VALUES (".$this->product_SKU.",".$this->product_quantity.",".$address1.",".$address2.",".$city.",".$pincode.",".$state.",".$contact.",".$district.")";
 
   $stmt=$this->conn->prepare($query);
 

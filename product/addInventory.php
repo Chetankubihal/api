@@ -26,6 +26,7 @@ $product = new Product($db);
     $address1= '"'. $_POST["address1"].'"';
     $address2= '"'. $_POST["address2"].'"';
     $city= '"'. $_POST["city"].'"';
+    $district= '"'. $_POST["district"].'"';
     $pincode= '"'. $_POST["pincode"].'"';
     $state= '"'. $_POST["state"].'"';
     $contact= '"'. $_POST["contact"].'"';
@@ -39,7 +40,7 @@ $product = new Product($db);
 
     
 
-    if($product->addInventory($address1,$address2,$city,$pincode,$state,$contact))
+    if($product->addInventory($address1,$address2,$city,$pincode,$state,$contact,$district))
     {
         http_response_code(200);
         echo json_encode(array("message"=>"True","product_SKU"=>$_POST['product_sku']));
