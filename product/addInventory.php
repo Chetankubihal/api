@@ -29,6 +29,8 @@ $product = new Product($db);
     $pincode= '"'. $_POST["pincode"].'"';
     $state= '"'. $_POST["state"].'"';
     $contact= '"'. $_POST["contact"].'"';
+    $role= '"'. $_POST["role"].'"';
+
 
 
 
