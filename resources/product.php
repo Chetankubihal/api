@@ -224,7 +224,7 @@ function readInventory(){
 
 function updateProduct()
 {
-    $query="Update products SET product_HSN=".$this->product_HSN.", product_name=".$this->product_name.",product_description=".$this->product_description.",product_category=".$this->product_category.",product_sub_category=".$this->product_sub_category.",product_MRP=".$this->product_MRP.",product_selling_price=".$this->product_selling_price.",package_length=".$this->package_length.",package_width=".$this->package_width.",package_breadth=".$this->package_breadth.",package_weight=".$this->package_weight."WHERE  product_id=".$this->product_id;
+    $query="Update products SET product_HSN=".$this->product_HSN.", product_name=".$this->product_name.",product_description=".$this->product_description.",product_category=".$this->product_category.",product_sub_category=".$this->product_sub_category.",product_MRP=".$this->product_MRP.",product_selling_price=".$this->product_selling_price.",package_length=".$this->package_length.",package_width=".$this->package_width.",package_breadth=".$this->package_breadth.",package_weight=".$this->package_weight."WHERE  product_SKU=".$this->product_SKU;
   
     $stmt= $this->conn->prepare($query);
 

@@ -20,7 +20,7 @@ $product = new Product($db);
 
 // make sure data is not empty
 
-$product->product_id= '"'.$_POST['product_id'].'"'; 
+$product->product_SKU= '"'.$_POST['product_sku'].'"'; 
 $product->product_HSN ='"'.$_POST["product_hsn"].'"';
 $product->product_name ='"'.  $_POST["product_name"].'"';
 $product->product_description ='"'. $_POST["product_description"].'"';
