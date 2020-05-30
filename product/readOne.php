@@ -20,6 +20,8 @@ $product = new Product($db);
  
 // set email property of record to read
 $product->product_id= '"'. $_GET['product_id'] .'"';
+$product->product_SKU= '"'. $_GET['product_sku'] .'"';
+
 // read the details of affiliate to be edited
 
 
@@ -48,8 +50,9 @@ if($product->readOne()){
     // make it json format
     echo json_encode(array("message"=>"True","data"=>$product_details));
 }
- 
+
 else{
+    
     // set response code - 404 Not found
     http_response_code(404);
  

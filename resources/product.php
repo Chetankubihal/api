@@ -130,7 +130,7 @@ function readOne(){
             FROM
                 " . $this->table . "
             WHERE
-                product_id = " . $this->product_id . "
+                product_SKU = " . $this->product_SKU . "
             LIMIT
                 0,1";
  
