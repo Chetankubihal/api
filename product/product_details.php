@@ -76,7 +76,7 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 	else 
 	$nestedData[] = "<span class='badge badge-warning'>" . $row['status'] ."</span>";
 
-	$nestedData[]= "<button name='view' class=' btn' value='view' data-toggle='tooltip' title='View' onclick=editProduct(".$row['product_id'].",".'"'.$row['product_SKU'].'"'.") ><i class='ft-edit'></i></button>";
+	$nestedData[]= "<button name='view' class=' btn' value='view' data-toggle='tooltip' title='View' onclick=editProduct(".$row['product_id'].",".'"'.$row['product_SKU'].'"'.") ><i class='ft-eye'></i></button>";
 
 	$data[] = $nestedData;
 	$i++;
