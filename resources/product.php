@@ -305,7 +305,7 @@ function updateInventory($address1,$address2,$city,$pincode,$state,$contact,$dis
 
   
 
-  $query="UPDATE inventory SET address1 =" .$address1. ",address2 = ".$address2.",city=". $city .",pincode=".$pincode.",state=".$state.",contact=".$contact.",type=".$type.",district=".$district.",role=".$role." WHERE sku_code=".$this->product_SKU;
+  $query="UPDATE inventory SET quantity=".$this->product_quantity".address1 =" .$address1. ",address2 = ".$address2.",city=". $city .",pincode=".$pincode.",state=".$state.",contact=".$contact.",type=".$type.",district=".$district.",role=".$role." WHERE sku_code=".$this->product_SKU;
 
   $stmt=$this->conn->prepare($query);
 
