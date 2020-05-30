@@ -22,6 +22,16 @@ public $package_width;
 public $package_breadth;
 public $package_weight;
 public $product_quantity;
+public $address1;
+public $address2;
+public $city;
+public $pincode;
+public $state;
+public $contact;
+public $type;
+public $last_updated;
+public $role;
+public $district;
 
 
 public function __construct($con)
@@ -168,6 +178,50 @@ function readOne(){
   
 }
 
+function readInventory(){
+ 
+    // query to read single record
+     $query = "SELECT *
+            FROM
+                inventory
+            WHERE
+                sku_code = " . $this->product_SKU . "
+            LIMIT
+                0,1";
+ 
+    // prepare query statement
+    $stmt = $this->conn->prepare( $query );
+ 
+    // execute query
+    if ($stmt->execute())
+ {
+    // get retrieved row
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+ 
+    // set values to object properties
+    $this->product_quantity = $row['quantity'];
+    $this->address1 = $row['address1'];
+    $this->address2 = $row['address2'];
+    $this->city = $row['city'];
+    $this->pincode = $row['pincode'];
+    $this->state = $row['state'];
+    $this->contact = $row['contact'];
+    $this->type = $row['type'];
+    $this->last_updated = $row['last_updated'];
+    $this->role=$row['role'];
+    $this->district=$row['district'];
+   
+    return true;
+ }
+
+ else
+ {
+     return false;
+ }
+    
+  
+}
+
 function updateProduct()
 {
     $query="Update products SET product_HSN=".$this->product_HSN.", product_name=".$this->product_name.",product_description=".$this->product_description.",product_category=".$this->product_category.",product_sub_category=".$this->product_sub_category.",product_MRP=".$this->product_MRP.",product_selling_price=".$this->product_selling_price.",package_length=".$this->package_length.",package_width=".$this->package_width.",package_breadth=".$this->package_breadth.",package_weight=".$this->package_weight."WHERE  product_id=".$this->product_id;
@@ -246,6 +300,19 @@ function addInventory($address1,$address2,$city,$pincode,$state,$contact,$distri
   return $stmt;
 }
 
+function updateInventory($address1,$address2,$city,$pincode,$state,$contact,$district,$type,$role)
+{
+
+  
+
+  $query="UPDATE inventory SET address1 =" .$address1. ",address2 = ".$address2.",city=". $city .",pincode=".$pincode.",state=".$state.",contact=".$contact.",type=".$type.",district=".$district.",role=".$role." WHERE sku_code=".$product_SKU;
+
+  $stmt=$this->conn->prepare($query);
+
+  $stmt->execute();
+
+  return $stmt;
+}
 }
 
 ?>
