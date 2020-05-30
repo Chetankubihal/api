@@ -12,11 +12,11 @@ include_once '../config/database.php';
 // instantiate affiliate object
 include_once '../resources/seller.php';
 
- 
-$database = new Database();
-$db = $database->getConnection();
- 
 
+$database = new Database();
+$conn=$database->getConnection();
+
+$seller=new Seller($conn);
 
     $seller->email = $_POST["email"];
     $channel_name = $_POST['channel_name'];
