@@ -25,7 +25,7 @@ $seller=new Seller($conn);
     
  
     // create the affiliate
-    if($seller->add_channel()){
+    if($seller->add_channel($channel_name,$client_id,$client_password)){
  
      
         http_response_code(200);

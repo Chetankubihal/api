@@ -397,7 +397,7 @@ function change_profile_picture($image_name)
 
 }
 
-function add_channel()
+function add_channel($channel_name,$client_id,$client_password)
 {
     $query="INSERT INTO seller_channels (seller_email,channel_name,client_id,client_password) values (".$this->email.",".$channel_name.",".$client_id.",".$client_password.")";  
 
