@@ -396,6 +396,21 @@ function change_profile_picture($image_name)
     return false;
 
 }
+
+function add_channel()
+{
+    $query="INSERT INTO seller_channels (seller_email,channel_name,client_id,client_password) values (".$this->email.",".$channel_name.",".$client_id.",".$client_password.")";  
+
+    $stmt = $this->conn->prepare($query);
+
+    if($stmt->execute()){
+
+        return true;
+        
+        }
+    return false;
+}
+
 }
 
 ?>
