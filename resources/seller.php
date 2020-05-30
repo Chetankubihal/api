@@ -401,7 +401,6 @@ function add_channel($channel_name,$client_id,$client_password)
 {
     $query="INSERT INTO seller_channels (seller_email,channel_name,client_id,client_password) values (".$this->email.",".$channel_name.",".$client_id.",".$client_password.")";  
 
-    echo $query;
     $stmt = $this->conn->prepare($query);
 
     if($stmt->execute()){

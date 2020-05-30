@@ -18,10 +18,10 @@ $conn=$database->getConnection();
 
 $seller=new Seller($conn);
 
-    $seller->email = $_POST["email"];
-    $channel_name = $_POST['channel_name'];
-    $client_id=$_POST['clientid'];
-    $client_password=$_POST['clientpassword'];
+    $seller->email = '"'. $_POST["email"] .'"';
+    $channel_name = '"'. $_POST['channel_name'] .'"';
+    $client_id= '"'. $_POST['clientid'] .'"';
+    $client_password= '"'. $_POST['clientpassword'] .'"';
     
  
     // create the affiliate
