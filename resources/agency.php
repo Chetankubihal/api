@@ -147,15 +147,16 @@ class Agency{
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
-            echo $row['sellerEmail'];
+            $row['sellerEmail'];
             array_push($seller_email_arr, '"'.$row['sellerEmail'].'"');
         }
-    
+        
+        echo $seller_email_arr;
         $query1="SELECT * FROM  seller WHERE  email IN (".implode(',',$seller_email_arr).")";
        // $query1.="AND sellerName = ".$search;
        // $query1.="OR storeName =".$search;
 
-
+        echo $query1;
         $stmt1= $this->conn->prepare($query1);
 
         $stmt1->execute();
