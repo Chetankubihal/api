@@ -141,7 +141,7 @@ class Agency{
         
 
         $stmt = $this->conn->prepare($query);
-        echo $query;
+
         $stmt->execute();
         $seller_email_arr=array();
 
@@ -150,13 +150,12 @@ class Agency{
             $row['sellerEmail'];
             array_push($seller_email_arr, '"'.$row['sellerEmail'].'"');
         }
-        
-        echo $seller_email_arr;
+    
         $query1="SELECT * FROM  seller WHERE  email IN (".implode(',',$seller_email_arr).")";
        // $query1.="AND sellerName = ".$search;
        // $query1.="OR storeName =".$search;
 
-        echo $query1;
+
         $stmt1= $this->conn->prepare($query1);
 
         $stmt1->execute();
