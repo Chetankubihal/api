@@ -39,6 +39,13 @@ $agencyMail=$_POST['email'];
 $agency->email = $_POST["email"];
 $agency->employeeEmail = $_POST["add_email"];
 $agency->role='employee';
-$agency->addMember();
+if ($agency->addMember())
+{
+    echo json_encode(array("message" => "Request sent"));
+}
+else 
+{
+    echo json_encode(array("message" => "Request sending Failed"));
+}
 
 ?>

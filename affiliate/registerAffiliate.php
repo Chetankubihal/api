@@ -68,7 +68,7 @@ $affiliate = new Affiliate($db);
        {
 	       http_response_code(201);
 
-	       echo json_encode(array("message"=> "False1"));
+	       echo json_encode(array("message"=> "true"));
        }
     }
  

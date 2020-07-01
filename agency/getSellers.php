@@ -47,8 +47,7 @@ if($stmt->rowCount()>0)
             "sellername" => $sellerName,
             "type" => $type,
             "email" => $email,
-            "contact" => $contact,
-            "password" => $password
+            "contact" => $contact
         );
  
  

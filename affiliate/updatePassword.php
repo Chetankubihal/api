@@ -24,11 +24,6 @@ $affiliate->email= $_POST['email'] ;
 $affiliate->password= md5( $_POST['password']) ;
 
 
-
-
-
-
-
 if($affiliate->updatePassword()){
 
     

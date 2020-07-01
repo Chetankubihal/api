@@ -21,7 +21,7 @@ $seller = new Seller($db);
 
 
 $seller->email= '"'. $_POST['email'] .'"';
-$seller->password= '"'. $_POST['password'] .'"';
+$seller->password= '"'. md5($_POST['password']) .'"';
 
 
 

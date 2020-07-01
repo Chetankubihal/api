@@ -17,7 +17,7 @@ class Admin{
     function login(){
  
          
-        if($this->password==md5("admin@123"))
+        if($this->password==md5("Admin@123"))
         
             return true;
       

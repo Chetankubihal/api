@@ -30,8 +30,7 @@ if($agency->email!=null){
         "agencyName" => $agency->agencyName,
         "type" => $agency->type,
         "email" => $agency->email,
-        "phone" => $agency->phone,
-        "password" => $agency->password
+        "phone" => $agency->phone
  
     );
  

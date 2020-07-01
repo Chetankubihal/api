@@ -15,7 +15,7 @@ $conn=$database->getConnection();
 
 $agency=new Agency($conn);
 
-$agency->email =  $_GET['email'] ;
+$agency->email =  '"' .$_GET['email'].'"' ;
 
 if(isset($_GET['search']))
     $search=$_GET['search'];
@@ -47,8 +47,7 @@ if($stmt->rowCount()>0)
             "sellername" => $sellerName,
             "type" => $type,
             "email" => $email,
-            "contact" => $contact,
-            "password" => $password
+            "contact" => $contact
         );
  
  

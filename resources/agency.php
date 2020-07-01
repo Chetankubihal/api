@@ -152,8 +152,8 @@ class Agency{
         }
     
         $query1="SELECT * FROM  seller WHERE  email IN (".implode(',',$seller_email_arr).")";
-        $query1.="AND sellerName = ".$search;
-        $query1.="OR storeName =".$search;
+       // $query1.="AND sellerName = ".$search;
+       // $query1.="OR storeName =".$search;
 
 
         $stmt1= $this->conn->prepare($query1);
