@@ -141,7 +141,7 @@ class Agency{
         
 
         $stmt = $this->conn->prepare($query);
-
+        echo $query;
         $stmt->execute();
         $seller_email_arr=array();
 
