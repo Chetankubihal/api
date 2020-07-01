@@ -147,7 +147,7 @@ class Agency{
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
         {
-            $row['sellerEmail'];
+            echo $row['sellerEmail'];
             array_push($seller_email_arr, '"'.$row['sellerEmail'].'"');
         }
     
