@@ -15,7 +15,7 @@ $conn=$database->getConnection();
 
 $agency=new Agency($conn);
 
-$agency->email =  '"' .$_GET['email'].'"' ;
+$agency->email =  $_GET['email'] ;
 
 if(isset($_GET['search']))
     $search=$_GET['search'];
