@@ -14,7 +14,7 @@ class Admin{
 
    
 
-    function updateLoginTime()
+    function updateLoginTime($MAC,$IP)
     {   
         date_default_timezone_set("Asia/Kolkata"); 
         $date = new DateTime("NOW");
@@ -23,7 +23,7 @@ class Admin{
         $query = "UPDATE
         " . $this->table . "
           SET
-            loginTime = " . $loginTime;
+            loginTime = " . $loginTime.",MAC_ADDR =".$MAC.",IP_ADDR=".$IP;
 
 // prepare query statement
             $stmt = $this->conn->prepare($query);

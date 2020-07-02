@@ -23,7 +23,12 @@ $admin = new Admin($db);
 
 $admin->password= md5($_POST['password']);
 
+//mac address
+$MAC = exec('getmac'); 
+$MAC = strtok($MAC, ' '); 
 
+//ip address
+$IP = $_SERVER['REMOTE_ADDR']; 
 
 
 
@@ -32,7 +37,7 @@ $stmt=$admin->login();
 if(($stmt->rowCount())>0){
 
     // set response code - 200 OK
-    $admin->updateLoginTime();
+    $admin->updateLoginTime($MAC,$IP);
 
     http_response_code(200);
  
