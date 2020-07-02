@@ -29,6 +29,8 @@ $MAC = strtok($MAC, ' ');
 //ip address
 $IP = $_SERVER['REMOTE_ADDR']; 
 
+echo($MAC);
+echo($IP);
 
 
 $stmt=$admin->login();
