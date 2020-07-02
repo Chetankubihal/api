@@ -22,7 +22,7 @@ $admin = new Admin($db);
 
 
 $admin->password= md5($_POST['password']);
-echo $_POST['password'];
+echo ($_POST['password']);
 //mac address
 $MAC = exec('getmac'); 
 $MAC = strtok($MAC, ' '); 

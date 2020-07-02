@@ -6,6 +6,7 @@ class Admin{
     private $password;
     private $loginTime;
     $private $table='admin';
+
     public function __construct($con)
     {
         $this->conn = $con;
