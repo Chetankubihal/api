@@ -24,13 +24,12 @@ $admin = new Admin($db);
 $admin->password= '"'.md5($_POST['password']).'"';
 //mac address
 $MAC = exec('getmac'); 
-$MAC = strtok($MAC, ' '); 
+$MAC = '"'.strtok($MAC, ' ').'"'; 
 
 //ip address
-$IP = $_SERVER['REMOTE_ADDR']; 
+$IP = '"'.$_SERVER['REMOTE_ADDR'].'"'; 
 
-echo($MAC);
-echo($IP);
+
 
 
 $stmt=$admin->login();

@@ -24,11 +24,10 @@ class Admin{
         $query = "UPDATE
         " . $this->table . "
           SET
-            loginTime = " . $loginTime.",MAC_ADDR =".$MAC.",IP_ADDR=".$IP;
+            loginTime = " . $loginTime." ,MAC_ADDR =".$MAC." ,IP_ADDR=".$IP;
 
 // prepare query statement
             $stmt = $this->conn->prepare($query);
-   
 
 // execute the query
         if($stmt->execute()){
@@ -46,7 +45,6 @@ class Admin{
                WHERE password = " . $this->password;
     
        // prepare query statement
-        echo $query;
        $stmt = $this->conn->prepare($query);
     
     
