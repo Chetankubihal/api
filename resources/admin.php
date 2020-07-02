@@ -3,7 +3,7 @@
 class Admin{
 
     private $conn;
-    private $password;
+    public $password;
     private $loginTime;
     $private $table='admin';
 
