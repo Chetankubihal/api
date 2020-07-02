@@ -27,10 +27,13 @@ $admin->password= md5($_POST['password']);
 
 
 
+$stmt=$admin->login();
 
-if($admin->login()){
+if(($stmt->rowCount())>0){
 
     // set response code - 200 OK
+    $admin->updateLoginTime();
+
     http_response_code(200);
  
     // make it json format

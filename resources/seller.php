@@ -367,12 +367,13 @@ function readOne(){
 function addAgency($agencyEmail)
 {
 
-    $query="INSERT INTO add_seller_agency (sellerEmail,agencyEmail) values ($agencyEmail,$this->email)";  
+    $secret_key = md5(md5($this->email.$agencyEmail))
+    $query="INSERT INTO add_seller_agency (sellerEmail,agencyEmail,secret_key) values ($agencyEmail,$this->email,$secret_key)";  
     $stmt = $this->conn->prepare( $query );
-
+    
 if($stmt->execute())
 {
-    return true;
+    return $secret_key;
 }
 
 return false;

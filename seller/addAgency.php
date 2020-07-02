@@ -10,17 +10,21 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 include_once '../config/database.php';
 include_once '../resources/seller.php';
 
+include_once 'email.php';
 
 $database=new Database();
 $conn=$database->getConnection();
 
 $seller=new Seller($conn);
+$email = new Mail();
 
 $seller->email='"'. $_POST['sellerEmail'] .'"';
 $agencyEmail='"' . $_POST['agencyEmail'] . '"';
-
-if($seller->addAgency($agencyEmail))
+$secret_key= $seller->addAgency($agencyEmail)
+if($secret_key)
 {
+
+    $email->agencyRequestEmail($agencyEmail,$secret_key);
     echo json_encode(array("message" => "True"));
 }
 else
