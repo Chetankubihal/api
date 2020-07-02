@@ -39,13 +39,13 @@ class Admin{
     function login(){
  
          
-        $query = "SELECT *
+        $query = "SELECT id
                FROM
                    " . $this->table . "
-               WHERE password = " . $this->password .;
+               WHERE password = " . $this->password;
     
        // prepare query statement
-    
+
        $stmt = $this->conn->prepare($query);
     
     
