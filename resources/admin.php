@@ -46,7 +46,7 @@ class Admin{
                WHERE password = " . $this->password;
     
        // prepare query statement
-
+        echo $query;
        $stmt = $this->conn->prepare($query);
     
     
