@@ -5,7 +5,7 @@ class Admin{
     private $conn;
     public $password;
     private $loginTime;
-    $private $table='admin';
+    private $table='admin';
 
     public function __construct($con)
     {
