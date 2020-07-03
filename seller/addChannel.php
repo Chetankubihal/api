@@ -11,20 +11,24 @@ include_once '../config/database.php';
  
 // instantiate affiliate object
 include_once '../resources/seller.php';
-
+include_once '../resources/shopclues.php'
 
 $database = new Database();
 $conn=$database->getConnection();
 
 $seller=new Seller($conn);
+$shopclues=new Shopclues($conn);
 
     $seller->email = '"'. $_POST["email"] .'"';
     $channel_name = '"'. $_POST['channel_name'] .'"';
-    $client_id= '"'. $_POST['clientid'] .'"';
-    $client_password= '"'. $_POST['clientpassword'] .'"';
-    
+    $shopclues->client_id= '"'. $_POST['clientid'] .'"';
+    $shopclues->client_password= '"'. $_POST['clientpassword'] .'"';
+    $shopclues->username= '"'. $_POST['username'] .'"';
+    $shopclues->password= '"'. $_POST['password'] .'"';
  
+    if($shopclues->checkSeller())
     // create the affiliate
+    {
     if($seller->add_channel($channel_name,$client_id,$client_password)){
  
      
@@ -44,6 +48,15 @@ $seller=new Seller($conn);
         echo json_encode(array("message" => "False"));
     }
 
+    
+
+}
+
+else{
+    http_response_code(503);
  
+        // tell the user
+        echo json_encode(array("message" => "Invalid"));
+}
 // tell the user data is incomplete
 ?>
