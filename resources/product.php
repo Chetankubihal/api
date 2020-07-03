@@ -314,6 +314,51 @@ function updateInventory($address1,$address2,$city,$pincode,$state,$contact,$dis
 
   return $stmt;
 }
+
+function add_data_channels($seller_email,$product_SKU)
+{
+    $error_flag=0;
+
+    //FIND ALL THE CHANNELS SELLER HAS COLLABORATED
+    $query="SELECT channel_name FROM seller_channels WHERE seller_email=".$seller_email;
+    $stmt=$this->conn->prepare($query);
+    $stmt->execute();
+    $channel_arr=array();
+
+    //CREATE AN ARRAY OF THE CHANNELS;
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+        {
+
+            array_push($channel_arr, $row['channel_name']);
+        }
+
+    //GET THE DETAILS OF THE PRODUCT
+    $query="SELECT * FROM products where product_SKU = ".$product_SKU." and seller_email = ".$seller_email;
+    $stmt=$this->conn->prepare($query);
+    $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //GET THE QUANTITY DETAILS
+    $query="SELECT quantity FROM inventory where sku_code = ".$product_SKU;
+    $stmt=$this->conn->prepare($query);
+    $stmt->execute();
+    $row1 = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    //ADD DATA TO RESPECTIVE CHANNEL TABLES
+    foreach ($channel_arr as $table_name)
+    {
+        if($table_name == "shopclues")
+        {
+        
+            $query="INSERT INTO ".$table_name."(list_price,price,quantity,category,hsn_code,product_name,description) VALUES (" .'"'.$row['product_MRP'].'"'.",".'"'.$row['product_selling_price'].'"'.",".'"'.$row1['quantity'].'"'.",".'"'.$row['product_category'].'"'.",".'"'.$row['product_HSN'].'"'.",".'"'.$row['product_name'].'"'.",".'"'.$row['product_description'].'"'.")";
+            $stmt=$this->conn->prepare($query);
+            if(!$stmt->execute())
+                
+        }
+    }
+}
+
 }
 
 ?>

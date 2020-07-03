@@ -10,7 +10,7 @@ $accessToken=$token["access_token"];
 header("Content-Type: application/json; charset=UTF-8");
 header("Authorization: Bearer".$accessToken)
 
-
+$product_code=$_GET['']
 
 
 ?>
