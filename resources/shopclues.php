@@ -11,7 +11,7 @@ class Shopclues{
   
     public $credentials;
     
-    $credentials= array(
+    $this->credentials= array(
     "username" => $username,
     "password" => md5($password),
     "client_id"=> $client_id,
