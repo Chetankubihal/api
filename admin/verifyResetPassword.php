@@ -20,13 +20,13 @@ $affiliate = new Affiliate($db);
 
 
 
-$email= '"'. $_POST['email'] .'"';
+$email= "chaitanyatjogin@gmail.com";
 $otp= '"'. $_POST['code'] .'"';
 
 
 
 
-$stmt=$affiliate->verifyAccount($email,$otp);
+$stmt=$admin->verifyAccount($email,$otp);
 
 
 $num = $stmt->rowCount();

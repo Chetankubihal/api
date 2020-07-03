@@ -16,7 +16,7 @@ $db = $database->getConnection();
 // prepare affiliate object
  
   $otp = new OTP($db);
-  $otp->email = "chaitanyatjogin@gmail.com ";
+  $otp->email = "chaitanyatjogin@gmail.com";
   $otp->otp=$otp->generateNumericOTP(); 
 
 // set email property of record to read

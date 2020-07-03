@@ -86,7 +86,25 @@ class Admin{
         return false;
 }
 
+function verifyAccount($email,$otp){
+ 
+         
+    $query = "SELECT *
+           FROM
+               otp 
+           WHERE email = " . $email . " AND  otp= " . $otp ;
 
+   // prepare query statement
+
+   $stmt = $this->conn->prepare($query);
+
+
+   // execute query
+   $stmt->execute();
+
+   return $stmt;
+
+}
 }
 
 
