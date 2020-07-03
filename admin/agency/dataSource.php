@@ -62,7 +62,6 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 	$nestedData[] = $row["agencyName"];
 	$nestedData[] = $row["email"];
 	$nestedData[] = $row["phone"];
-	$nestedData[] = $row["password"];
 	if($row['status']=='Active')     
     $nestedData[] = "<span class='badge badge-success'>" . $row['status'] ."</span>";
 	else

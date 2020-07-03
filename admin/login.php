@@ -21,7 +21,7 @@ $admin = new Admin($db);
 
 
 
-$admin->password= '"'.md5($_POST['password']).'"';
+
 $admin->password= '"'.md5($_POST['password']).'"';
 
 //mac address

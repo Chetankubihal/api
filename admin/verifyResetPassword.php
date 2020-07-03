@@ -7,14 +7,14 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 
 include_once '../config/database.php';
-include_once '../resources/affiliate.php';
+include_once '../resources/admin.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // prepare affiliate object
-$affiliate = new Affiliate($db);
+$admin = new Admin($db);
  
 // set email property of record to read
 
