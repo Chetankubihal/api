@@ -7,46 +7,39 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 
 include_once '../config/database.php';
-include_once '../resources/admin.php';
+include_once '../resources/affiliate.php';
  
 // get database connection
 $database = new Database();
 $db = $database->getConnection();
  
 // prepare affiliate object
-$admin = new Admin($db);
+$affiliate = new Affiliate($db);
  
 // set email property of record to read
 
 
 
-
-$admin->password= '"'.md5($_POST['password']).'"';
-$admin->password= '"'.md5($_POST['password']).'"';
-
-//mac address
-$MAC = exec('getmac'); 
-$MAC = '"'.strtok($MAC, ' ').'"'; 
-
-//ip address
-$IP = '"'.$_SERVER['REMOTE_ADDR'].'"'; 
+$email= '"'. $_POST['email'] .'"';
+$otp= '"'. $_POST['code'] .'"';
 
 
 
 
-$stmt=$admin->login();
+$stmt=$affiliate->verifyAccount($email,$otp);
 
-if($stmt->rowCount()>0){
+
+$num = $stmt->rowCount();
+
+
+if($num > 0){
+
 
     // set response code - 200 OK
-    $admin->updateLoginTime($MAC,$IP);
-
     http_response_code(200);
  
     // make it json format
-    // echo json_encode(array("message" => "True"));
     echo json_encode(array("message" => "True"));
-    
 }
  
 else{
@@ -54,7 +47,4 @@ else{
     // tell the user affiliate does not exist
     echo json_encode(array("message" => "False"));
 }
-
-
-
 ?>

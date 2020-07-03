@@ -55,6 +55,36 @@ class Admin{
 
     }
 
+    function updatePassword()
+    {
+        $query = "UPDATE
+        " . $this->table . "
+          SET
+            
+             password = :password
+              WHERE
+             email = :email";
+
+// prepare query statement
+            $stmt = $this->conn->prepare($query);
+           
+// sanitize
+           
+            $this->email=htmlspecialchars(strip_tags($this->email));
+            $this->password=htmlspecialchars(strip_tags($this->password));
+
+// bind new values
+           
+            $stmt->bindParam(':email', $this->email);
+            $stmt->bindParam(':password', $this->password);
+
+// execute the query
+        if($stmt->execute()){
+            return true;
+            }
+
+        return false;
+}
 
 
 }

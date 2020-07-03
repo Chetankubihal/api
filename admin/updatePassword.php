@@ -20,41 +20,22 @@ $admin = new Admin($db);
 
 
 
-
-$admin->password= '"'.md5($_POST['password']).'"';
-$admin->password= '"'.md5($_POST['password']).'"';
-
-//mac address
-$MAC = exec('getmac'); 
-$MAC = '"'.strtok($MAC, ' ').'"'; 
-
-//ip address
-$IP = '"'.$_SERVER['REMOTE_ADDR'].'"'; 
+$admin->email= "chaitanyatjogin@gmail.com " ;
+$admin->password= md5( $_POST['password']) ;
 
 
-
-
-$stmt=$admin->login();
-
-if($stmt->rowCount()>0){
+if($admin->updatePassword()){
 
     // set response code - 200 OK
-    $admin->updateLoginTime($MAC,$IP);
-
     http_response_code(200);
- 
-    // make it json format
-    // echo json_encode(array("message" => "True"));
-    echo json_encode(array("message" => "True"));
     
+    // make it json format
+    echo json_encode(array("message" => "Successful"));
 }
  
 else{
     // set response code - 404 Not found 
     // tell the user affiliate does not exist
-    echo json_encode(array("message" => "False"));
+    echo json_encode(array("message" => "Failed"));
 }
-
-
-
 ?>
