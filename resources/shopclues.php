@@ -7,9 +7,9 @@ class Shopclues{
     public $username;
     public $password;
 
-    $oauth_url = 'https://auth.shopclues.com/loginToken.php'; 
+     public $oauth_url = 'https://auth.shopclues.com/loginToken.php'; 
   
-    $credentials = array(
+    public $credentials = array(
     "username" => $username,
     "password" => md5($password),
     "client_id"=> $client_id,
