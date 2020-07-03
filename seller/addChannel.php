@@ -11,7 +11,7 @@ include_once '../config/database.php';
  
 // instantiate affiliate object
 include_once '../resources/seller.php';
-include_once '../resources/shopclues.php'
+include_once '../resources/shopclues.php';
 
 $database = new Database();
 $conn=$database->getConnection();
