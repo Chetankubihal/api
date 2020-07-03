@@ -11,7 +11,7 @@ class Shopclues{
   
     $credentials = array(
     "username" => $username,
-    "password" => $password,
+    "password" => md5($password),
     "client_id"=> $client_id,
     "client_secret"=> $client_password,
     "grant_type"=> "password"
