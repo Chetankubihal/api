@@ -20,7 +20,7 @@ $admin = new Admin($db);
 
 
 
-$admin->email= "chaitanyatjogin@gmail.com " ;
+$admin->email= "chaitanyatjogin@gmail.com" ;
 $admin->password= md5( $_POST['password']) ;
 
 
