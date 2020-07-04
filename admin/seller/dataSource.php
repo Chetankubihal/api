@@ -39,7 +39,7 @@ $totalData = mysqli_num_rows($query);
 $totalFiltered = $totalData;  // when there is no search parameter then total number rows = total number filtered rows.
 
 
-$sql = "SELECT sellerName, email,storeName, type,status ";
+$sql = "SELECT sellerName, email,storeName, type,status,loginTime ";
 $sql.=" FROM seller WHERE 1=1";
 if( !empty($requestData['search']['value']) ) {   // if there is a search parameter, $requestData['search']['value'] contains search parameter
 	$sql.=" AND ( email LIKE '".$requestData['search']['value']."%' ";    
@@ -62,15 +62,15 @@ while( $row=mysqli_fetch_array($query) ) {  // preparing an array
 	$nestedData[] = $row["sellerName"];
 	$nestedData[] = $row["storeName"];
 	$nestedData[] = $row["type"];
-	
+	$nestedData[] = $row["loginTime"];
 	if($row['status']=='Active')     
     $nestedData[] = "<span class='badge badge-success'>" . $row['status'] ."</span>";
 	else if($row['status']=='Deactivated')
 	$nestedData[] = "<span class='badge badge-danger'>" . $row['status'] ."</span>";
 	else
 	$nestedData[] = "<span class='badge badge-warning'>" . $row['status'] ."</span>";
-	
-	$nestedData[]= "<input type='button' name='view' value='view' onclick=sellerDashboard(" .'"' . $row['email'] .'"'.','.'"'. $row['sellerName'] .'"'. ") >";
+	$type="admin";
+	$nestedData[]= "<input type='button' name='view' value='view' onclick=sellerDashboard(" .'"' . $row['email'] .'"'.','.'"'. $row['sellerName'] .'"'.','.'"'.$row['status'].'"'.','.'"'.$row['image_path'].'"'.','.'"'.$admin.'"'. ") >";
 
 	$data[] = $nestedData;
 	$i++;
