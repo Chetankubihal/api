@@ -351,10 +351,11 @@ function add_data_channels($seller_email,$product_SKU)
         if($table_name == "shopclues")
         {
         
-            $query="INSERT INTO ".$table_name."(list_price,price,quantity,category,hsn_code,product_name,description) VALUES (" .'"'.$row['product_MRP'].'"'.",".'"'.$row['product_selling_price'].'"'.",".'"'.$row1['quantity'].'"'.",".'"'.$row['product_category'].'"'.",".'"'.$row['product_HSN'].'"'.",".'"'.$row['product_name'].'"'.",".'"'.$row['product_description'].'"'.")";
+            $query="INSERT INTO ".$table_name."(list_price,price,quantity,category,hsn_code,product_name,description,sku_code,merchant_email) VALUES (" .'"'.$row['product_MRP'].'"'.",".'"'.$row['product_selling_price'].'"'.",".'"'.$row1['quantity'].'"'.",".'"'.$row['product_category'].'"'.",".'"'.$row['product_HSN'].'"'.",".'"'.$row['product_name'].'"'.",".'"'.$row['product_description'].'"'.",".'"'.$row['product_SKU'].'"'.",".$seller_email.")";
             $stmt=$this->conn->prepare($query);
-            if(!$stmt->execute())
-                
+            $stmt->execute();
+            return true;
+            
         }
     }
 }

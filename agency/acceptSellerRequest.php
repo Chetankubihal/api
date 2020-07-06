@@ -15,8 +15,8 @@ $conn=$database->getConnection();
 
 $agency=new Agency($conn);
 
-$agencyEmail =  $_GET['agencyEmail'] ;
-$sellerEmail =  $_GET['sellerEmail'] ;
+$agencyEmail = '"'. $_POST['agencyEmail'].'"' ;
+$sellerEmail = '"'.$_POST['sellerEmail'] .'"';
 
 
 if($agency->acceptSellerRequest($sellerEmail,$agencyEmail))
